@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=60", "setuptools-scm>=8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "VIIRS-orbits"
+version = "1.0.1"
+description = "Orbit Calculation Tool for the Visible Infrared Imaging Radiometer Suite (VIIRS)"
+readme = "README.md"
+authors = [
+    { name = "Gregory H. Halverson", email = "gregory.h.halverson@jpl.nasa.gov" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "ephem",
+    "geopandas",
+    "numpy",
+    "pyproj",
+    "python-dateutil",
+    "rasters",
+    "shapely",
+    "solar-apparent-time",
+    "spacetrack"
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "pytest>=6.0",
+    "pytest-cov",
+    "jupyter",
+    "pytest",
+    "twine"
+]
+
+[tool.setuptools.package-data]
+ETtoolbox = ["*.txt"]
+
+[project.urls]
+Homepage = "https://github.com/JPL-Evapotranspiration-Algorithms/VIIRS-orbits"
+
+[tool.setuptools.packages.find]
+include = ["VIIRS_orbits"]
+exclude = ["calval", "testing"]
